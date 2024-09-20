@@ -90,7 +90,7 @@ Type :
 
 3x Account : "" And /3 And /3*2
 
-Got more Accounts : Feel free to edit the code and implent more Types, I have never used more than 3 accounts in a single realm therefore I haven't implented the option as well
+Got more Accounts? Feel free to edit the code and implent more Types, I have never used more than 3 accounts in a single realm therefore I haven't implented the option as well
 
 Copyright 2024 Pou-Xlover
 
