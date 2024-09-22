@@ -1,5 +1,4 @@
 #Requires AutoHotkey v2.0
-#include "%A_ScriptDir%\Includes\class_CNG.ahk"
 OnError LogError
 If !A_IsAdmin {
 Run '*RunAs "' A_ScriptFullPath '" /restart'
