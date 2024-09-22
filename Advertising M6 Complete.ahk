@@ -1,4 +1,5 @@
 #Requires AutoHotkey v2.0
+#include "%A_ScriptDir%\Includes\class_CNG.ahk"
 OnError LogError
 If !A_IsAdmin {
 Run '*RunAs "' A_ScriptFullPath '" /restart'
@@ -334,8 +335,8 @@ Settingsui.Add("Text","x20 y60 W100 H20","Starting position Y :")
 Settingsui.Add("Text","x20 y90 W100 H20","Window Size X :")
 Settingsui.Add("Text","x20 y120 W100 H20","Window Size Y :")
 
-Settingsarray[1] := Settingsui.Add("Edit","x140 y25 W65 R1",winx)
-Settingsarray[2] := Settingsui.Add("Edit","x140 y55 W65 R1",winy)
+Settingsarray[1] := Settingsui.Add("Edit","x140 y25 W65 R1",IniRead(iniFile, "Sorting", "winx", "0"))
+Settingsarray[2] := Settingsui.Add("Edit","x140 y55 W65 R1",IniRead(iniFile, "Sorting", "winy", "0"))
 Settingsarray[3] := Settingsui.Add("Edit","x140 y85 W65 R1",winsizex)
 Settingsarray[4] := Settingsui.Add("Edit","x140 y115 W65 R1",winsizey)
 
