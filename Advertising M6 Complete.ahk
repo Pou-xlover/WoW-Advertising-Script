@@ -171,7 +171,7 @@ If FileExist(Accountfilename) {
 FileCopy(Accountfilename,Accountfilename ".backup",1)
 FileDelete(Accountfilename)
 }
-loop AccountNO {
+loop ((MyArray.Length-2)/10) {
 	If A_Index != 1 {
 	FileAppend("`r`n",Accountfilename)
 	}
@@ -212,7 +212,6 @@ MsgBox "Saved and Applied"
 
 Enablemygui(Hwnd) {
 MyGui.Opt("-Disabled")
-
 }
 
 NewEditAccounts(Btn := "",*) {
