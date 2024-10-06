@@ -782,29 +782,16 @@ If WinExist(idd) And WinActive(idd) = 0 And idd != InactiveAccIDD
 {
 ; ControlSend MacroButtons,idd
 If MacroButtons != MacroAFKButtons {
-SendKeys(MacroButtons,idd)
+ControlSendKeys(MacroButtons,idd)
 } Else {
 ControlSend MacroAFKButtons,idd
 }
 }
 }
 
-SendKeys(keys,Hwndg,delay := 5) {
-    keys := StrSplit(keys,",")
-	keys2 := Array()
-    for key in keys {
-		For z in StrSplit(key) {
-		Keys2.Push(z)
-		}
-		}
-    for key in keys2 {
-            ControlSendKeys(GetKeyVK(key), Hwndg)
-        }
-}
-
 ControlSendKeys(key, Hwnds) {
-    PostMessage 0x0100, key, 0x001C0001,, Hwnds ; WM_KEYDOWN
-    PostMessage 0x0101, key, 0xC01C0001,, Hwnds ; WM_KEYUP
+    PostMessage 0x0100, GetKeyVK(key), 0x001C0001,, Hwnds ; WM_KEYDOWN
+    PostMessage 0x0101, GetKeyVK(key), 0xC01C0001,, Hwnds ; WM_KEYUP
 	Sleep 100
 }
 
