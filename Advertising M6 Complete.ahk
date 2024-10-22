@@ -172,9 +172,6 @@ FileCopy(Accountfilename,Accountfilename ".backup",1)
 FileDelete(Accountfilename)
 }
 loop ((MyArray.Length-2)/10) {
-	If A_Index != 1 {
-	FileAppend("`r`n",Accountfilename)
-	}
     az := A_Index
     startIndex := (az - 1) * 8 + 1
     endIndex := az * 8
@@ -200,7 +197,7 @@ loop ((MyArray.Length-2)/10) {
 		}
 		continue
 		} Else {
-		FileAppend(MyArray[currentIndex].Text ",",Accountfilename)
+		FileAppend(MyArray[currentIndex].Text ",`r`n",Accountfilename)
 		continue
 		}
     }
@@ -784,7 +781,7 @@ If WinExist(idd) And WinActive(idd) = 0 And idd != InactiveAccIDD
 If MacroButtons != MacroAFKButtons {
 ControlSendKeys(MacroButtons,idd)
 } Else {
-ControlSend MacroAFKButtons,idd
+ControlSendKeys(MacroAFKButtons,idd)
 }
 }
 }
@@ -792,7 +789,6 @@ ControlSend MacroAFKButtons,idd
 ControlSendKeys(key, Hwnds) {
     PostMessage 0x0100, GetKeyVK(key), 0x001C0001,, Hwnds ; WM_KEYDOWN
     PostMessage 0x0101, GetKeyVK(key), 0xC01C0001,, Hwnds ; WM_KEYUP
-	Sleep 100
 }
 
 Togglestate(Btn,*) {
