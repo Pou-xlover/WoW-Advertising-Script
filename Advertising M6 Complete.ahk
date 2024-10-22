@@ -172,6 +172,9 @@ FileCopy(Accountfilename,Accountfilename ".backup",1)
 FileDelete(Accountfilename)
 }
 loop ((MyArray.Length-2)/10) {
+	If A_Index != 1 {
+	FileAppend("`r`n",Accountfilename)
+	}
     az := A_Index
     startIndex := (az - 1) * 8 + 1
     endIndex := az * 8
@@ -197,7 +200,7 @@ loop ((MyArray.Length-2)/10) {
 		}
 		continue
 		} Else {
-		FileAppend(MyArray[currentIndex].Text ",`r`n",Accountfilename)
+		FileAppend(MyArray[currentIndex].Text ",",Accountfilename)
 		continue
 		}
     }
